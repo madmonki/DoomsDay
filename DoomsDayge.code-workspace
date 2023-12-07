@@ -1,0 +1,868 @@
+{
+	"folders": [
+		{
+			"name": "DoomsDayge",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "/mnt/SSD870/UnrealEngine/5.3.2"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"npm.autoDetect": "off"
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp",
+			"vadimcn.vscode-lldb",
+			"ms-vscode.mono-debug",
+			"dfarley1.file-picker"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "DoomsDayge Linux Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"Debug",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"Debug",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDayge Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"Debug",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"DebugGame",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"DebugGame",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDayge Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"DebugGame",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"Development",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"Development",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDayge Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"Development",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux Test Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"Test",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux Test Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"Test",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDayge Linux Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux Test Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"Test",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux Shipping Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"Shipping",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux Shipping Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"Shipping",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDayge Linux Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge Linux Shipping Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"Linux",
+					"Shipping",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"Debug",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"Debug",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDayge LinuxArm64 Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"Debug",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDayge LinuxArm64 DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"DebugGame",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"Development",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"Development",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDayge LinuxArm64 Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"Development",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 Test Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"Test",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 Test Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"Test",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDayge LinuxArm64 Test Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 Test Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"Test",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 Shipping Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"Shipping",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 Shipping Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"Shipping",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDayge LinuxArm64 Shipping Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDayge LinuxArm64 Shipping Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDayge",
+					"LinuxArm64",
+					"Shipping",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDaygeEditor Linux Debug Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDaygeEditor",
+					"Linux",
+					"Debug",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDaygeEditor Linux Debug Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDaygeEditor",
+					"Linux",
+					"Debug",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDaygeEditor Linux Debug Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDaygeEditor Linux Debug Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDaygeEditor",
+					"Linux",
+					"Debug",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDaygeEditor Linux DebugGame Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDaygeEditor",
+					"Linux",
+					"DebugGame",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDaygeEditor Linux DebugGame Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDaygeEditor",
+					"Linux",
+					"DebugGame",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDaygeEditor Linux DebugGame Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDaygeEditor Linux DebugGame Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDaygeEditor",
+					"Linux",
+					"DebugGame",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDaygeEditor Linux Development Build",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDaygeEditor",
+					"Linux",
+					"Development",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDaygeEditor Linux Development Rebuild",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDaygeEditor",
+					"Linux",
+					"Development",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex"
+				],
+				"problemMatcher": "$msCompile",
+				"dependsOn": [
+					"DoomsDaygeEditor Linux Development Clean"
+				],
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			},
+			{
+				"label": "DoomsDaygeEditor Linux Development Clean",
+				"group": "build",
+				"command": "Engine/Build/BatchFiles/Linux/Build.sh",
+				"args": [
+					"DoomsDaygeEditor",
+					"Linux",
+					"Development",
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-waitmutex",
+					"-clean"
+				],
+				"problemMatcher": "$msCompile",
+				"type": "shell",
+				"options": {
+					"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+				}
+			}
+		]
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": [
+			{
+				"name": "Launch DoomsDayge (Debug)",
+				"request": "launch",
+				"program": "/home/madmonki/EVO870/unrealprojs/DoomsDay/Binaries/Linux/UnrealGame-Linux-Debug",
+				"preLaunchTask": "DoomsDayge Linux Debug Build",
+				"args": [
+				],
+				"cwd": "/mnt/SSD870/UnrealEngine/5.3.2",
+				"type": "cppdbg",
+				"visualizerFile": "/mnt/SSD870/UnrealEngine/5.3.2/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch DoomsDayge (DebugGame)",
+				"request": "launch",
+				"program": "/home/madmonki/EVO870/unrealprojs/DoomsDay/Binaries/Linux/UnrealGame-Linux-DebugGame",
+				"preLaunchTask": "DoomsDayge Linux DebugGame Build",
+				"args": [
+				],
+				"cwd": "/mnt/SSD870/UnrealEngine/5.3.2",
+				"type": "cppdbg",
+				"visualizerFile": "/mnt/SSD870/UnrealEngine/5.3.2/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch DoomsDayge (Development)",
+				"request": "launch",
+				"program": "/home/madmonki/EVO870/unrealprojs/DoomsDay/Binaries/Linux/UnrealGame",
+				"preLaunchTask": "DoomsDayge Linux Development Build",
+				"args": [
+				],
+				"cwd": "/mnt/SSD870/UnrealEngine/5.3.2",
+				"type": "cppdbg",
+				"visualizerFile": "/mnt/SSD870/UnrealEngine/5.3.2/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch DoomsDayge (Test)",
+				"request": "launch",
+				"program": "/home/madmonki/EVO870/unrealprojs/DoomsDay/Binaries/Linux/UnrealGame-Linux-Test",
+				"preLaunchTask": "DoomsDayge Linux Test Build",
+				"args": [
+				],
+				"cwd": "/mnt/SSD870/UnrealEngine/5.3.2",
+				"type": "cppdbg",
+				"visualizerFile": "/mnt/SSD870/UnrealEngine/5.3.2/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch DoomsDayge (Shipping)",
+				"request": "launch",
+				"program": "/home/madmonki/EVO870/unrealprojs/DoomsDay/Binaries/Linux/UnrealGame-Linux-Shipping",
+				"preLaunchTask": "DoomsDayge Linux Shipping Build",
+				"args": [
+				],
+				"cwd": "/mnt/SSD870/UnrealEngine/5.3.2",
+				"type": "cppdbg",
+				"visualizerFile": "/mnt/SSD870/UnrealEngine/5.3.2/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch DoomsDaygeEditor (Debug)",
+				"request": "launch",
+				"program": "/mnt/SSD870/UnrealEngine/5.3.2/Engine/Binaries/Linux/UnrealEditor-Linux-Debug",
+				"preLaunchTask": "DoomsDaygeEditor Linux Debug Build",
+				"args": [
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject"
+				],
+				"cwd": "/mnt/SSD870/UnrealEngine/5.3.2",
+				"type": "cppdbg",
+				"visualizerFile": "/mnt/SSD870/UnrealEngine/5.3.2/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch DoomsDaygeEditor (DebugGame)",
+				"request": "launch",
+				"program": "/mnt/SSD870/UnrealEngine/5.3.2/Engine/Binaries/Linux/UnrealEditor-Linux-DebugGame",
+				"preLaunchTask": "DoomsDaygeEditor Linux DebugGame Build",
+				"args": [
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject"
+				],
+				"cwd": "/mnt/SSD870/UnrealEngine/5.3.2",
+				"type": "cppdbg",
+				"visualizerFile": "/mnt/SSD870/UnrealEngine/5.3.2/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Launch DoomsDaygeEditor (Development)",
+				"request": "launch",
+				"program": "/mnt/SSD870/UnrealEngine/5.3.2/Engine/Binaries/Linux/UnrealEditor",
+				"preLaunchTask": "DoomsDaygeEditor Linux Development Build",
+				"args": [
+					"/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject"
+				],
+				"cwd": "/mnt/SSD870/UnrealEngine/5.3.2",
+				"type": "cppdbg",
+				"visualizerFile": "/mnt/SSD870/UnrealEngine/5.3.2/Engine/Extras/VisualStudioDebugging/Unreal.natvis",
+				"showDisplayString": true
+			},
+			{
+				"name": "Generate Project Files",
+				"type": "coreclr",
+				"request": "launch",
+				"preLaunchTask": "UnrealBuildTool Linux Development Build",
+				"program": "/mnt/SSD870/UnrealEngine/5.3.2/Engine/Build/BatchFiles/RunUBT.bat",
+				"args": [
+					"-projectfiles",
+					"-vscode",
+					"-project=/home/madmonki/EVO870/unrealprojs/DoomsDay/DoomsDayge.uproject",
+					"-game",
+					"-engine",
+					"-dotnet"
+				],
+				"console": "internalConsole",
+				"internalConsoleOptions": "openOnSessionStart",
+				"stopAtEntry": false,
+				"cwd": "/mnt/SSD870/UnrealEngine/5.3.2"
+			}
+		]
+	}
+}

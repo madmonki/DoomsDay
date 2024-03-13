@@ -38,3 +38,18 @@ void ASwingDoor::Tick(float DeltaTime)
 
 }
 
+void ASwingDoor::OpenDoor(float dt)
+{
+	
+}
+
+void ASwingDoor::CloseDoor(float dt)
+{
+	
+}
+
+void ASwingDoor::ToggleDoor(FVector ForwardVector)
+{
+	
+}
+

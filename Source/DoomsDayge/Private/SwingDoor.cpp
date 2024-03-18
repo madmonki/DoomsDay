@@ -22,6 +22,25 @@ ASwingDoor::ASwingDoor()
 
 	Door = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("DOOR"));
 	Door->SetupAttachment(RootComponent);
+
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>
+	DoorAsset(TEXT("/Game/StarterContent/Props/SM_Door.Sm_Door"));
+
+	if(DoorAsset.Succeeded())
+	{
+		Door->SetStaticMesh(DoorAsset.Object);
+		Door->SetRelativeLocation(FVector(0.f, 50.f, -100.f));
+		Door->SetWorldScale3D(FVector(1.f));
+	}
+
+	isClosed = true;
+	Opening = false;
+	Closing = false;
+
+	DotP = 0.f;
+	MaxDegree = 0.f;
+	PosNeg = 0.f;
+	DoorCurrentRotation = 0.f;
 }
 
 // Called when the game starts or when spawned

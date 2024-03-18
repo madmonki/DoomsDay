@@ -28,7 +28,7 @@ public:
 	UFUNCTION()
 	void OpenDoor(float dt);
 	UFUNCTION()
-	void ToggleDoor(FVector ForwardVector);
+	void ToggleDoor(const FVector &ForwardVector);
 	
 	UPROPERTY(VisibleAnywhere, Category="Box Comps")
 	class UBoxComponent* BoxComp;

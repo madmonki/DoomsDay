@@ -47,7 +47,12 @@ ASwingDoor::ASwingDoor()
 void ASwingDoor::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	DrawDebugBox(GetWorld(), GetActorLocation(),
+		BoxComp->GetScaledBoxExtent(),
+		FQuat(GetActorRotation()),
+		FColor::Turquoise, true,
+		-1.f, 0.f, 2.f);
 }
 
 // Called every frame
@@ -55,20 +60,86 @@ void ASwingDoor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if (Opening)
+	{
+		OpenDoor(DeltaTime);
+	}
+
+	if (Closing)
+	{
+		CloseDoor(DeltaTime);
+	}
 }
 
 void ASwingDoor::OpenDoor(float dt)
 {
-	
+	DoorCurrentRotation = Door->GetRelativeRotation().Yaw;
+
+	AddRotation = PosNeg * dt * 80.f;
+
+	if (FMath::IsNearlyEqual(DoorCurrentRotation, MaxDegree,
+				1.5f))
+	{
+		Closing = false;
+		Opening = false;
+	}
+	else if (Opening)
+	{
+		const FRotator NewRotation = FRotator(0., AddRotation,
+											0.);
+		Door->AddRelativeRotation(FQuat(NewRotation), false,
+			nullptr,
+			ETeleportType::None);
+	}
 }
 
 void ASwingDoor::CloseDoor(float dt)
 {
-	
+	DoorCurrentRotation = Door->GetRelativeRotation().Yaw;
+
+	if (DoorCurrentRotation > 0.)
+	{
+		AddRotation = -dt * 80;
+	}
+	else
+	{
+		AddRotation = dt * 80;
+	}
+
+	if (FMath::IsNearlyEqual(DoorCurrentRotation, 0.f, 1.5f))
+	{
+		Closing = false;
+		Opening = false;
+	}
+	else if (Closing)
+	{
+		const FRotator NewRotation = FRotator(0., AddRotation,
+											0.);
+		Door->AddRelativeRotation(FQuat(NewRotation), false,
+			nullptr,
+			ETeleportType::None);
+	}
 }
 
-void ASwingDoor::ToggleDoor(FVector ForwardVector)
+void ASwingDoor::ToggleDoor(const FVector &ForwardVector)
 {
-	
+	DotP = FVector::DotProduct(BoxComp->GetForwardVector(), ForwardVector);
+
+	PosNeg = FMath::Sign(DotP);
+
+	MaxDegree = PosNeg * 90.f;
+
+	if (isClosed)
+	{
+		isClosed = false;
+		Closing = false;
+		Opening = true;
+	}
+	else
+	{
+		Opening = false;
+		isClosed = true;
+		Closing = true;
+	}
 }
 

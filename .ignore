@@ -1,6 +1,8 @@
-/Content
-/.git
-/.vscode
 /Intermediate
-/Saved
 /DerivedDataCache
+/.vscode
+/.git
+/.idea
+/Saved
+/Binaries
+/Makefile

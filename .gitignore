@@ -1,6 +1,7 @@
 # Rider
 .idea/
 .ignore
+Makefile
 
 # Visual Studio 2015 user specific files
 .vs/

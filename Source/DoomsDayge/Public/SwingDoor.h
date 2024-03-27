@@ -23,18 +23,23 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable, Category = "DoorFunc")
 	void CloseDoor(float dt);
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable, Category = "DoorFunc")
 	void OpenDoor(float dt);
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable, Category = "DoorFunc")
 	void ToggleDoor(const FVector &ForwardVector);
 	
 	UPROPERTY(VisibleAnywhere, Category="Box Comps")
 	class UBoxComponent* BoxComp;
 	class UStaticMeshComponent* Door;
 
-	bool Opening, Closing, isClosed;
+	UPROPERTY(BlueprintReadWrite)
+	bool Opening;
+	UPROPERTY(BlueprintReadWrite)
+	bool Closing;
+	UPROPERTY(BlueprintReadWrite)
+	bool isClosed;
 	float DotP, MaxDegree, AddRotation, PosNeg, DoorCurrentRotation;
 
 };

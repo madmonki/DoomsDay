@@ -29,6 +29,15 @@ public:
 	void OpenDoor(float dt);
 	UFUNCTION(BlueprintCallable, Category = "DoorFunc")
 	void ToggleDoor(const FVector &ForwardVector);
+
+	UFUNCTION()
+	virtual void OverlappedBegin(UPrimitiveComponent* OverlappedComp,
+		AActor* Other, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex,
+		bool bFromSweep, const FHitResult& SweepResult);
+
+	UFUNCTION()
+	virtual void OverlappedEnd(UPrimitiveComponent* OverlappedComp,
+		AActor* Other, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
 	
 	UPROPERTY(VisibleAnywhere, Category="Box Comps")
 	class UBoxComponent* BoxComp;

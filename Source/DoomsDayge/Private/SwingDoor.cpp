@@ -18,6 +18,8 @@ ASwingDoor::ASwingDoor()
 	BoxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BOX COMP"));
 	BoxComp->InitBoxExtent(FVector(150, 100, 100));
 	BoxComp->SetCollisionProfileName("Trigger");
+	BoxComp->OnComponentBeginOverlap.AddDynamic(this, &ASwingDoor::OverlappedBegin);
+	BoxComp->OnComponentEndOverlap.AddDynamic(this, &ASwingDoor::OverlappedEnd);
 	RootComponent = BoxComp;
 
 	Door = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("DOOR"));
@@ -141,5 +143,18 @@ void ASwingDoor::ToggleDoor(const FVector &ForwardVector)
 		isClosed = true;
 		Closing = true;
 	}
+}
+
+void ASwingDoor::OverlappedBegin(UPrimitiveComponent* OverlappedComp,
+	AActor* Other, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex,
+	bool bFromSweep, const FHitResult& SweepResult)
+{
+	
+}
+
+void ASwingDoor::OverlappedEnd(UPrimitiveComponent* OverlappedComp,
+	AActor* Other, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
+{
+	
 }
 

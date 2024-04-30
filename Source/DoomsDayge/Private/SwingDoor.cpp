@@ -16,7 +16,7 @@ ASwingDoor::ASwingDoor()
 	PrimaryActorTick.bCanEverTick = true;
 
 	BoxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BOX COMP"));
-	BoxComp->InitBoxExtent(FVector(150, 100, 100));
+	BoxComp->InitBoxExtent(FVector(85, 75, 100));
 	BoxComp->SetCollisionProfileName("Trigger");
 	BoxComp->OnComponentBeginOverlap.AddDynamic(this, &ASwingDoor::OverlappedBegin);
 	BoxComp->OnComponentEndOverlap.AddDynamic(this, &ASwingDoor::OverlappedEnd);
@@ -77,7 +77,7 @@ void ASwingDoor::OpenDoor(float dt)
 {
 	DoorCurrentRotation = Door->GetRelativeRotation().Yaw;
 
-	AddRotation = PosNeg * dt * 80.f;
+	AddRotation = PosNeg * dt * 80.f * 3;
 
 	if (FMath::IsNearlyEqual(DoorCurrentRotation, MaxDegree,
 				1.5f))
@@ -101,11 +101,11 @@ void ASwingDoor::CloseDoor(float dt)
 
 	if (DoorCurrentRotation > 0.)
 	{
-		AddRotation = -dt * 80;
+		AddRotation = -dt * 80 * 3;
 	}
 	else
 	{
-		AddRotation = dt * 80;
+		AddRotation = dt * 80 * 3;
 	}
 
 	if (FMath::IsNearlyEqual(DoorCurrentRotation, 0.f, 1.5f))

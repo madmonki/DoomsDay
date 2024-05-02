@@ -77,10 +77,10 @@ void ASwingDoor::OpenDoor(float dt)
 {
 	DoorCurrentRotation = Door->GetRelativeRotation().Yaw;
 
-	AddRotation = PosNeg * dt * 80.f * 3;
+	AddRotation = PosNeg * dt * 60.f * 3.f;
 
 	if (FMath::IsNearlyEqual(DoorCurrentRotation, MaxDegree,
-				1.5f))
+				.5f))
 	{
 		Closing = false;
 		Opening = false;
@@ -101,14 +101,14 @@ void ASwingDoor::CloseDoor(float dt)
 
 	if (DoorCurrentRotation > 0.)
 	{
-		AddRotation = -dt * 80 * 3;
+		AddRotation = -dt * 60.f * 3.f;
 	}
 	else
 	{
-		AddRotation = dt * 80 * 3;
+		AddRotation = dt * 60.f * 3.f;
 	}
 
-	if (FMath::IsNearlyEqual(DoorCurrentRotation, 0.f, 1.5f))
+	if (FMath::IsNearlyEqual(DoorCurrentRotation, 0.f, .5f))
 	{
 		Closing = false;
 		Opening = false;

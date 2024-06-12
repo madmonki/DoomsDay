@@ -49,6 +49,7 @@ public:
 	bool Closing;
 	UPROPERTY(BlueprintReadWrite)
 	bool isClosed;
-	float DotP, MaxDegree, AddRotation, PosNeg, DoorCurrentRotation;
+	float DotP, MaxLocation, AddLocation, PosNeg;
+	FVector DoorCurrentLocation;
 
 };

@@ -31,7 +31,7 @@ ASwingDoor::ASwingDoor()
 	if(DoorAsset.Succeeded())
 	{
 		Door->SetStaticMesh(DoorAsset.Object);
-		Door->SetRelativeLocation(FVector(0.f, 50.f, -100.f));
+		Door->SetRelativeLocation(FVector(0.f, 0.f, 0.f));
 		Door->SetWorldScale3D(FVector(1.f));
 	}
 
@@ -39,10 +39,10 @@ ASwingDoor::ASwingDoor()
 	Opening = false;
 	Closing = false;
 
-	DotP = 0.f;
-	MaxDegree = 0.f;
-	PosNeg = 0.f;
-	DoorCurrentRotation = 0.f;
+	// DotP = 0.f;
+	MaxLocation = 0.f;
+	// PosNeg = 0.f;
+	// DoorCurrentLocation = FVector(0., 0., 0.);
 }
 
 // Called when the game starts or when spawned
@@ -75,11 +75,11 @@ void ASwingDoor::Tick(float DeltaTime)
 
 void ASwingDoor::OpenDoor(float dt)
 {
-	DoorCurrentRotation = Door->GetRelativeRotation().Yaw;
+	DoorCurrentLocation = Door->GetRelativeLocation();
 
-	AddRotation = PosNeg * dt * 60.f * 3.f;
+	AddLocation = dt * 1.f;
 
-	if (FMath::IsNearlyEqual(DoorCurrentRotation, MaxDegree,
+	if (FMath::IsNearlyEqual(DoorCurrentLocation.Z, MaxLocation,
 				.5f))
 	{
 		Closing = false;
@@ -87,9 +87,9 @@ void ASwingDoor::OpenDoor(float dt)
 	}
 	else if (Opening)
 	{
-		const FRotator NewRotation = FRotator(0., AddRotation,
-											0.);
-		Door->AddRelativeRotation(FQuat(NewRotation), false,
+		const FVector NewLocation = FVector(DoorCurrentLocation.X, DoorCurrentLocation.Y,
+											AddLocation);
+		Door->SetRelativeLocation(FVector(NewLocation) , false,
 			nullptr,
 			ETeleportType::None);
 	}
@@ -97,27 +97,28 @@ void ASwingDoor::OpenDoor(float dt)
 
 void ASwingDoor::CloseDoor(float dt)
 {
-	DoorCurrentRotation = Door->GetRelativeRotation().Yaw;
+	DoorCurrentLocation = Door->GetRelativeLocation();
 
-	if (DoorCurrentRotation > 0.)
+	AddLocation = -dt * 1.f;
+	/*if (DoorCurrentLocation > 0.f)
 	{
-		AddRotation = -dt * 60.f * 3.f;
+		AddLocation = -dt * 10.f;
 	}
 	else
 	{
-		AddRotation = dt * 60.f * 3.f;
-	}
+		AddLocation = dt * 10.f;
+	}*/
 
-	if (FMath::IsNearlyEqual(DoorCurrentRotation, 0.f, .5f))
+	if (FMath::IsNearlyEqual(DoorCurrentLocation.Z, 0.f, .5f))
 	{
 		Closing = false;
 		Opening = false;
 	}
 	else if (Closing)
 	{
-		const FRotator NewRotation = FRotator(0., AddRotation,
-											0.);
-		Door->AddRelativeRotation(FQuat(NewRotation), false,
+		const FVector NewLocation = FVector(0., 0.,
+											AddLocation);
+		Door->SetRelativeLocation(FVector(NewLocation), false,
 			nullptr,
 			ETeleportType::None);
 	}
@@ -125,12 +126,14 @@ void ASwingDoor::CloseDoor(float dt)
 
 void ASwingDoor::ToggleDoor(const FVector &ForwardVector)
 {
-	DotP = FVector::DotProduct(BoxComp->GetForwardVector(), ForwardVector);
+	// DotP = FVector::DotProduct(BoxComp->GetForwardVector(), ForwardVector);
 
-	PosNeg = FMath::Sign(DotP);
+	// PosNeg = FMath::Sign(DotP);
 
-	MaxDegree = PosNeg * 90.f;
+	// MaxLocation = PosNeg * 90.f;
 
+	MaxLocation = 160.f;
+	
 	if (isClosed)
 	{
 		isClosed = false;

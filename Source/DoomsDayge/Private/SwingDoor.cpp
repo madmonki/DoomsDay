@@ -16,7 +16,7 @@ ASwingDoor::ASwingDoor()
 	PrimaryActorTick.bCanEverTick = true;
 
 	BoxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BOX COMP"));
-	BoxComp->InitBoxExtent(FVector(85, 75, 100));
+	BoxComp->InitBoxExtent(FVector(80, 45, 100));
 	BoxComp->SetCollisionProfileName("Trigger");
 	BoxComp->OnComponentBeginOverlap.AddDynamic(this, &ASwingDoor::OverlappedBegin);
 	BoxComp->OnComponentEndOverlap.AddDynamic(this, &ASwingDoor::OverlappedEnd);
@@ -31,8 +31,8 @@ ASwingDoor::ASwingDoor()
 	if(DoorAsset.Succeeded())
 	{
 		Door->SetStaticMesh(DoorAsset.Object);
-		Door->SetRelativeLocation(FVector(0.f, 50.f, -100.f));
 		Door->SetWorldScale3D(FVector(1.f));
+		Door->SetRelativeLocation(FVector(100.f, 100.f, 100.f));
 	}
 
 	isClosed = true;

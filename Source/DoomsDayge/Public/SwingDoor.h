@@ -41,6 +41,7 @@ public:
 	
 	UPROPERTY(VisibleAnywhere, Category="Box Comps")
 	class UBoxComponent* BoxComp;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	class UStaticMeshComponent* Door;
 
 	UPROPERTY(BlueprintReadWrite)
